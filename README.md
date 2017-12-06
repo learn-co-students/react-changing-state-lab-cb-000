@@ -1,8 +1,8 @@
-# React Changing State Lab
+npm# React Changing State Lab
 
 ## Overview
 
-In this lab, you'll implement a Tic Tac Toe game where you will respond to state changes in React and rendering React components. 
+In this lab, you'll implement a Tic Tac Toe game where you will respond to state changes in React and rendering React components.
 
 ## Tic-tac-toe
 
