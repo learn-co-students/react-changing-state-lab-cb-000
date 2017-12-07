@@ -6,7 +6,6 @@
     "node": "6.x",
     "npm": "3.x"
   },
-  "main": "index.js",
   "scripts": {
     "debug": "node-debug --hidden node_modules _mocha --watch",
     "debug-ide": "./bin/debug-ide",
@@ -47,6 +46,7 @@
   },
   "dependencies": {
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^15.3.0",
+    "react-test-renderer": "^15.5.4"
   }
 }

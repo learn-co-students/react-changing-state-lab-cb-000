@@ -2,11 +2,22 @@ import React from 'react';
 import Field from './Field';
 
 export default class Board extends React.Component {
+  constructor(props){
+    super(props);
+
+  }
+
+
   render () {
     const { board, onClick } = this.props;
     return (
-      <div>
-      </div>
+      <div className='board'>
+         {
+           board.map((player, i) =>
+            <Field key={i} player={player} onClick={onClick.bind(null, i)} />
+           )
+         }
+       </div>
     );
   }
 }
