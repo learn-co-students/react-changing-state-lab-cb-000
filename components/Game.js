@@ -3,30 +3,59 @@ import Board from './Board';
 import Status from './Status';
 import solutions from './solutions';
 
+const INIT_STATE = {
+   board: [null, null, null, null, null, null, null, null, null],
+  turn: "X"
+}
 export default class Game extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = INIT_STATE
 
     this.handleReset = this.handleReset.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleReset (ev) {
+    ev.preventDefault();
+    this.setState( INIT_STATE )
   }
 
   handleClick (i, ev) {
+    ev.preventDefault();
+    var board = this.state.board.slice(); //not sure why we need the slice
+    board.splice(i,1,this.state.turn); //place player in board based on index
+    var turn = this.state.turn === "X" ? "O" : "X"; //change player based on who is next
+
+
+    this.setState({
+      board: board,
+      turn: turn
+    })
   }
 
   getWinner () {
+    const results = solutions.map(
+      (solution) => solution.map((i) => this.state.board[i]).join('')
+    );
+    const row = results.find(
+      (result) => result === 'XXX' || result === 'OOO'
+    );
+    return row && row[0];
   }
 
   isComplete () {
+     return this.state.board.every((field) => field);
   }
 
   render () {
     return (
-      <div>
+      <div className="game">
+      <Board board={this.state.board} onClick={this.handleClick} />
+      {this.isComplete() ? <Status winner={this.getWinner()} /> : null}
+
+        <button className="game__reset" onClick={this.handleReset}>Reset</button>
+
       </div>
     );
   }
