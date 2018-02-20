@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import Field from '../src/components/Field';
+import Field from '../components/Field';
 
 describe('<Field />', function () {
   it('should have .field class', function () {

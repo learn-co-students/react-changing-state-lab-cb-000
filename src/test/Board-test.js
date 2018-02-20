@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import Board from '../src/components/Board';
-import Field from '../src/components/Field';
+import Board from '../components/Board';
+import Field from '../components/Field';
 
 describe('<Board />', function () {
   it('should have .board class', function () {
