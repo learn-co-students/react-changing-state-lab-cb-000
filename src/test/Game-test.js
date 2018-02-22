@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import Status from '../src/components/Status';
-import Board from '../src/components/Board';
-import Game from '../src/components/Game';
+import Status from '../components/Status';
+import Board from '../components/Board';
+import Game from '../components/Game';
 
 describe('<Game />', function () {
   it('should have .game class', function () {
@@ -58,7 +58,7 @@ describe('<Game />', function () {
       ]
     });
     expect(wrapper.find(Status).length).toBe(1);
-    // expect(wrapper.find(Status).prop('winner')).toBe('X');
+    expect(wrapper.find(Status).prop('winner')).toBe('X');
   });
 
   it('should show `<Status winner=\'O\' />` when O won', function () {
@@ -71,7 +71,7 @@ describe('<Game />', function () {
       ]
     });
     expect(wrapper.find(Status).length).toBe(1);
-    // expect(wrapper.find(Status).prop('winner')).toBe('O');
+    expect(wrapper.find(Status).prop('winner')).toBe('O');
   });
 
   it('should contain button with `game__reset` class', function () {

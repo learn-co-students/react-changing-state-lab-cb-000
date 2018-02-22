@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Status from '../src/components/Status';
+import Status from '../components/Status';
 
 describe('<Status />', function () {
   it('should have .status class', function () {
