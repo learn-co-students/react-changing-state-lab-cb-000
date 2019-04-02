@@ -41,27 +41,35 @@ export default class Game extends React.Component {
     })
     this.state.turn == 'X' ? this.setState({turn: 'O'}) : this.setState({turn: 'X'}) ;
     this.getWinner() ;
+    console.log(`handleclick is being called by ${i}`)
   }
 
   getWinner () {
+    const that = this ;
     if (winCombos.some(function(combo){
       return(
         combo.every(function(space){
           return(
-            this.state.board[space] == 'X'
+            that.state.board[space] == 'X'
           )
         })
       )
-    })){this.setState({winner: 'X wins'})}
+    })){
+      this.setState({winner: 'X wins'}) ;
+      alert('X wins') ;
+    }
     if (winCombos.some(function(combo){
       return(
         combo.every(function(space){
           return(
-            this.state.board[space] == 'O'
+            that.state.board[space] == 'O'
           )
         })
       )
-    })){this.setState({winner: 'O wins'})}
+    })){
+      this.setState({winner: 'O wins'}) ;
+      alert('O wins')
+    }
     if(this.isComplete() && this.state.winner == undefined){
       this.setState({
         winner: 'Tie'

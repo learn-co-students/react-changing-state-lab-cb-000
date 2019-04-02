@@ -183,4 +183,5 @@ describe('<Game />', function () {
       null, null, 'X'
     ]);
   });
+
 });

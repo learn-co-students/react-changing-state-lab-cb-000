@@ -1,12 +1,18 @@
 import React from 'react';
 
-export default class Field extends React.Component {
-  render () {
-    const { player, onClick } = this.props;
+const Field = (props) => {
+  var disabled ;
+  if (!!props.player){
+    disabled = true
+  }
+  else{
+    disabled = false
+  }
     return (
-      <button className="field" onClick={this.props.onClick} >
-        {this.props.player}
+      <button className="field" disabled={disabled} onClick={event => props.handleClick(props.index, event) } >
+        {props.player}
       </button>
     );
-  }
 }
+//this is a field
+export default Field
